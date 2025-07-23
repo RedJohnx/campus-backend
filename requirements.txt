@@ -1,0 +1,48 @@
+# Flask and web framework dependencies
+Flask==2.3.3
+Flask-CORS==4.0.0
+Werkzeug==2.3.7
+
+# Database dependencies
+pymongo==4.5.0
+dnspython==2.4.2
+
+# Authentication dependencies
+firebase-admin==6.2.0
+PyJWT==2.8.0
+
+# Environment and configuration
+python-dotenv==1.0.0
+
+# File processing dependencies
+pandas==2.1.1
+openpyxl==3.1.2
+xlrd==2.0.1
+
+# AI integration dependencies
+groq==0.4.1
+requests==2.31.0
+
+# PDF generation and reporting
+reportlab==4.0.4
+matplotlib==3.7.2
+seaborn==0.12.2
+
+# Email functionality
+Flask-Mail==0.9.1
+
+# Utility dependencies
+python-dateutil==2.8.2
+pytz==2023.3
+
+# Development and testing dependencies
+pytest==7.4.2
+pytest-flask==1.2.0
+python-decouple==3.8
+
+# Security and validation
+marshmallow==3.20.1
+email-validator==2.0.0
+
+# Logging and monitoring
+structlog==23.1.0

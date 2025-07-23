@@ -12,9 +12,10 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
     
-    # Initialize CORS
-    CORS(app)
-    
+    # Initialize CORS with more permissive settings
+    CORS(app, resources={r"/api/*": {"origins": "*", "supports_credentials": True}}, 
+         allow_headers=["Content-Type", "Authorization", "Accept"],
+         methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
     # Initialize database
     init_db()
     
@@ -46,6 +47,14 @@ def create_app():
         """Health check endpoint."""
         return {'status': 'healthy', 'message': 'Campus Assets API is running'}
     
+    @app.after_request
+    def after_request(response):
+        """Add CORS headers to all responses."""
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+        response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+        return response
+
     return app
 
 # Create app instance for testing and imports
@@ -53,4 +62,3 @@ app = create_app()
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
-    

@@ -1,0 +1,8 @@
+runtime: python39
+
+env_variables:
+  # Add your environment variables here
+  
+automatic_scaling:
+  min_instances: 0
+  max_instances: 10
